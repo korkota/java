@@ -9,7 +9,7 @@
         <servlet-class>edu.etu.web.Servlet</servlet-class>
         <init-param>
             <param-name>defaultTab</param-name>
-            <param-value>briefDescription</param-value>
+            <param-value>reviews</param-value>
         </init-param>
     </servlet>
     <servlet-mapping>

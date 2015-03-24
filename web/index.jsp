@@ -11,6 +11,5 @@
     <title></title>
   </head>
   <body>
-    ДДДААА БЛЯЯТЬЬ!
   </body>
 </html>

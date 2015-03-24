@@ -21,10 +21,12 @@ public class Servlet extends javax.servlet.http.HttpServlet {
         String localeName = request.getParameter("locale");
         Locale locale;
 
-        if (localeName.equals("en_US")) {
+        if (localeName != null && localeName.equals("en_US")) {
             locale = new Locale("en", "US");
+        } else if (localeName != null && localeName.equals("ge_GE")) {
+            locale = new Locale("ge", "GE");
         } else {
-            locale = new Locale("ru", "ru");
+            locale = new Locale("ru", "RU");
         }
 
         ResourceBundle internationalization = ResourceBundle.getBundle("internationalization", locale, new UTF8Control());
@@ -40,7 +42,7 @@ public class Servlet extends javax.servlet.http.HttpServlet {
                 "    <meta name=\"author\" content=\"\">\n" +
                 "    <link rel=\"icon\" href=\"../../favicon.ico\">\n" +
                 "\n" +
-                "    <title>Navbar Template for Bootstrap</title>\n" +
+                "    <title>Shop</title>\n" +
                 "\n" +
                 "    <!-- Bootstrap core CSS -->\n" +
                 "    <link href=\"/assets/stylesheets/bootstrap.min.css\" rel=\"stylesheet\">\n" +
@@ -72,6 +74,7 @@ public class Servlet extends javax.servlet.http.HttpServlet {
                 "                    <ul class=\"dropdown-menu\">\n" +
                 "                        <li><a href=\"?locale=en_US\">" + internationalization.getString("english") + "</a></li>\n" +
                 "                        <li><a href=\"?locale=ru_RU\">" + internationalization.getString("russian") + "</a></li>\n" +
+                "                        <li><a href=\"?locale=ge_GE\">" + internationalization.getString("german") + "</a></li>\n" +
                 "                    </ul>\n" +
                 "                </li>" +
                 "            </ul>\n" +
@@ -100,9 +103,28 @@ public class Servlet extends javax.servlet.http.HttpServlet {
                             "\n" +
                             "  <!-- Tab panes -->\n" +
                             "  <div class=\"tab-content\">\n" +
-                            "    <div role=\"tabpanel\" class=\"tab-pane\" id=\"briefDescription\">Краткое описание</div>\n" +
-                            "    <div role=\"tabpanel\" class=\"tab-pane\" id=\"fullDescription\">Полное описание</div>\n" +
-                            "    <div role=\"tabpanel\" class=\"tab-pane\" id=\"reviews\">Отзывы</div>\n" +
+                            "    <div role=\"tabpanel\" class=\"tab-pane\" id=\"briefDescription\">" +
+                                    "<b>Тип конструкции:</b> Экран с электроприводом <br/>" +
+                                    "<b>Полотно</b>: Матовое<br/>" +
+                                    "<b>Формат</b>: 16:10<br/>" +
+                                "</div>\n" +
+                            "    <div role=\"tabpanel\" class=\"tab-pane\" id=\"fullDescription\">" +
+                                    "<b>Тип конструкции:</b> Экран с электроприводом <br/>" +
+                                    "<b>Полотно</b>: Матовое<br/>" +
+                                    "<b>Формат</b>: 16:10<br/>" +
+                                    "<b>Диагональ, см/дюйм:</b> 144\"<br/>" +
+                                    "<b>Размер экрана, см:</b> 320х204 <br/>" +
+                                    "<b>Поддержка 3D:</b> нет<br/>" +
+                                "</div>\n" +
+                            "    <div role=\"tabpanel\" class=\"tab-pane\" id=\"reviews\">" +
+                                    "<p class=\"well\">Отзыв от пользователя <b>User1</b>: </br>" +
+                                        "<i>Отличный экран!</i>" +
+                                        "</br>" +
+                                    "</p>" +
+                                    "<p class=\"well\">Отзыв от пользователя <b>User2</b>: </br>" +
+                                        "<i>Слишком дорогой товар. Можной найти дешевле в других магазинах.</i>" +
+                                    "</p>" +
+                                "</div>\n" +
                             "  </div>\n" +
                             "\n" +
                             "</div>" +
