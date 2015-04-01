@@ -4,7 +4,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,6 +21,20 @@ public class Servlet extends javax.servlet.http.HttpServlet {
 
     protected void doGet(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
         String localeName = request.getParameter("locale");
+
+        if (localeName == null) {
+            for (Cookie cookie : request.getCookies()) {
+                if (cookie.getName().equals("locale")) {
+                    localeName = cookie.getValue();
+                    break;
+                }
+            }
+        } else {
+            Cookie cookie = new Cookie("locale", localeName);
+            cookie.setMaxAge(60*60);
+            response.addCookie(cookie);
+        }
+
         Locale locale;
 
         if (localeName != null && localeName.equals("en_US")) {
@@ -30,6 +46,17 @@ public class Servlet extends javax.servlet.http.HttpServlet {
         }
 
         ResourceBundle internationalization = ResourceBundle.getBundle("internationalization", locale, new UTF8Control());
+
+        ServletContext context = getServletContext();
+        Items items = (Items)context.getAttribute("items");
+
+        String id = request.getParameter("id");
+        Item item = null;
+        for (Item itemCandidate : items.getItems()) {
+            if (itemCandidate.id.equals(id)) {
+                item = itemCandidate;
+            }
+        }
 
         StringBuilder sb = new StringBuilder();
         sb.append(
@@ -63,7 +90,7 @@ public class Servlet extends javax.servlet.http.HttpServlet {
                 "              <span class=\"icon-bar\"></span>\n" +
                 "              <span class=\"icon-bar\"></span>\n" +
                 "            </button>\n" +
-                "            <a class=\"navbar-brand\" href=\"#\">Project name</a>\n" +
+                "            <a class=\"navbar-brand\" href=\"/\">Shop</a>\n" +
                 "          </div>\n" +
                 "          <div id=\"navbar\" class=\"navbar-collapse collapse\">\n" +
                 "            <ul class=\"nav navbar-nav\">\n" +
@@ -72,9 +99,9 @@ public class Servlet extends javax.servlet.http.HttpServlet {
                 "                <li class=\"dropdown active\">\n" +
                 "                    <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">" + internationalization.getString("language") + " <b class=\"caret\"></b></a>\n" +
                 "                    <ul class=\"dropdown-menu\">\n" +
-                "                        <li><a href=\"?locale=en_US\">" + internationalization.getString("english") + "</a></li>\n" +
-                "                        <li><a href=\"?locale=ru_RU\">" + internationalization.getString("russian") + "</a></li>\n" +
-                "                        <li><a href=\"?locale=ge_GE\">" + internationalization.getString("german") + "</a></li>\n" +
+                "                        <li><a onclick=\"setLocale('en_US');\">" + internationalization.getString("english") + "</a></li>\n" +
+                "                        <li><a onclick=\"setLocale('ru_RU');\">" + internationalization.getString("russian") + "</a></li>\n" +
+                "                        <li><a onclick=\"setLocale('ge_GE');\">" + internationalization.getString("german") + "</a></li>\n" +
                 "                    </ul>\n" +
                 "                </li>" +
                 "            </ul>\n" +
@@ -82,11 +109,11 @@ public class Servlet extends javax.servlet.http.HttpServlet {
                 "        </div><!--/.container-fluid -->\n" +
                 "      </nav>\n" +
                 "\n" +
-                "    <h4>" + internationalization.getString("item") + " <small>2000$</small></h4>" +
+                "    <h4>" + item.title + " <small>" + item.price + "$</small></h4>" +
                 "    <div class=\"row\">\n" +
                 "        <div class=\"col-xs-12 col-md-3\">\n" +
                 "            <div class=\"text-center\">\n" +
-                "                <img class=\"item img-responsive img-thumbnail\" src=\"/assets/images/item.jpg\" alt=\"\"/>\n" +
+                "                <img class=\"item img-responsive img-thumbnail\" src=\"/assets/images/items/" + item.id + ".jpg\" alt=\"\"/>\n" +
                 "            </div>\n" +
                 "            <br/>\n" +
                 "            <button type=\"button\" class=\"btn btn-block btn-primary\">" + internationalization.getString("buy") + "</button>\n" +
@@ -103,22 +130,15 @@ public class Servlet extends javax.servlet.http.HttpServlet {
                             "\n" +
                             "  <!-- Tab panes -->\n" +
                             "  <div class=\"tab-content\">\n" +
-                            "    <div role=\"tabpanel\" class=\"tab-pane\" id=\"briefDescription\">" +
-                                    "<b>Тип конструкции:</b> Экран с электроприводом <br/>" +
-                                    "<b>Полотно</b>: Матовое<br/>" +
-                                    "<b>Формат</b>: 16:10<br/>" +
+                            "    <div role=\"tabpanel\" class=\"tab-pane\" id=\"briefDescription\">"
+                                    + item.briefDescription +
                                 "</div>\n" +
-                            "    <div role=\"tabpanel\" class=\"tab-pane\" id=\"fullDescription\">" +
-                                    "<b>Тип конструкции:</b> Экран с электроприводом <br/>" +
-                                    "<b>Полотно</b>: Матовое<br/>" +
-                                    "<b>Формат</b>: 16:10<br/>" +
-                                    "<b>Диагональ, см/дюйм:</b> 144\"<br/>" +
-                                    "<b>Размер экрана, см:</b> 320х204 <br/>" +
-                                    "<b>Поддержка 3D:</b> нет<br/>" +
+                            "    <div role=\"tabpanel\" class=\"tab-pane\" id=\"fullDescription\">"
+                                    + item.fullDescription +
                                 "</div>\n" +
                             "    <div role=\"tabpanel\" class=\"tab-pane\" id=\"reviews\">" +
                                     "<p class=\"well\">Отзыв от пользователя <b>User1</b>: </br>" +
-                                        "<i>Отличный экран!</i>" +
+                                        "<i>Отличный товар!</i>" +
                                         "</br>" +
                                     "</p>" +
                                     "<p class=\"well\">Отзыв от пользователя <b>User2</b>: </br>" +
@@ -141,7 +161,41 @@ public class Servlet extends javax.servlet.http.HttpServlet {
                 "    <script src=\"/assets/javascripts/jquery.min.js\"></script>\n" +
                 "    <script src=\"/assets/javascripts/bootstrap.js\"></script>\n" +
                 "    <script src=\"/assets/javascripts/custom.js\"></script>\n" +
-                "   " +
+                "<script>\n" +
+                        "    function setLocale(locale) {\n" +
+                        "        setCookie(\"locale\", locale, {expires: 3600});\n" +
+                        "        document.location.reload(true);\n" +
+                        "    }\n" +
+                        "\n" +
+                        "    function setCookie(name, value, options) {\n" +
+                        "        options = options || {};\n" +
+                        "\n" +
+                        "        var expires = options.expires;\n" +
+                        "\n" +
+                        "        if (typeof expires == \"number\" && expires) {\n" +
+                        "            var d = new Date();\n" +
+                        "            d.setTime(d.getTime() + expires*1000);\n" +
+                        "            expires = options.expires = d;\n" +
+                        "        }\n" +
+                        "        if (expires && expires.toUTCString) {\n" +
+                        "            options.expires = expires.toUTCString();\n" +
+                        "        }\n" +
+                        "\n" +
+                        "        value = encodeURIComponent(value);\n" +
+                        "\n" +
+                        "        var updatedCookie = name + \"=\" + value;\n" +
+                        "\n" +
+                        "        for(var propName in options) {\n" +
+                        "            updatedCookie += \"; \" + propName;\n" +
+                        "            var propValue = options[propName];\n" +
+                        "            if (propValue !== true) {\n" +
+                        "                updatedCookie += \"=\" + propValue;\n" +
+                        "            }\n" +
+                        "        }\n" +
+                        "\n" +
+                        "        document.cookie = updatedCookie;\n" +
+                        "    }\n" +
+                        "</script>" +
                 "   " +
                 " " +
                 "\n" +

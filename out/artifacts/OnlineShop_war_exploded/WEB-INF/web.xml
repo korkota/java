@@ -9,12 +9,12 @@
         <servlet-class>edu.etu.web.Servlet</servlet-class>
         <init-param>
             <param-name>defaultTab</param-name>
-            <param-value>reviews</param-value>
+            <param-value>briefDescription</param-value>
         </init-param>
     </servlet>
     <servlet-mapping>
         <servlet-name>Servlet</servlet-name>
-        <url-pattern>/Servlet</url-pattern>
+        <url-pattern>/items</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>default</servlet-name>
