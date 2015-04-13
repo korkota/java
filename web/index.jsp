@@ -18,9 +18,11 @@
     <title>Shop</title>
     <!-- Bootstrap core CSS -->
     <link href="/assets/stylesheets/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/stylesheets/bootstrap-formhelpers.min.css" rel="stylesheet">
     <link href="/assets/stylesheets/navbar.css" rel="stylesheet">
     <link href="/assets/stylesheets/custom.css" rel="stylesheet">
     <jsp:useBean id="items" class="edu.etu.web.Items" scope="application"/>
+    <jsp:useBean id="cart" class="edu.etu.web.Cart" scope="session"/>
 </head>
 <body>
 <div class="container">
@@ -45,9 +47,9 @@
         <div class="col-xs-12">
             <form class="form-inline pull-right">
                 <div class="form-group">
-                    <label for="filter" class="text-right"><%=internationalization.getString("show")%>:</label>
+                    <label for="filter" class="text-right"><fmt:message key="show"/>:</label>
                     <select id="filter" class="form-control" onchange="itemsChanged();">
-                        <option value="0"><%=internationalization.getString("all")%></option>
+                        <option value="0"><fmt:message key="all"/></option>
                         <% for (Item item : items.getItems()) {
                             String selected = "";
                             if (id != null && id.equals(item.id)) {
@@ -80,11 +82,7 @@
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="/assets/javascripts/jquery.min.js"></script>
 <script src="/assets/javascripts/bootstrap.js"></script>
-<script>
-    function itemsChanged() {
-        var value = document.getElementsByTagName('select')[0].value;
-        window.location.search = 'id=' + value;
-    }
-</script>
+<script src="/assets/javascripts/bootstrap-formhelpers.js"></script>
+<script src="/assets/javascripts/custom.js"></script>
 </body>
 </html>

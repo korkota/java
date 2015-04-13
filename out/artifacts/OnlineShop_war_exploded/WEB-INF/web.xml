@@ -16,6 +16,25 @@
         <servlet-name>Servlet</servlet-name>
         <url-pattern>/items</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AddItemToCart</servlet-name>
+        <servlet-class>edu.etu.web.AddItemToCart</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddItemToCart</servlet-name>
+        <url-pattern>/add-item-to-cart</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RemoveItemFromCart</servlet-name>
+        <servlet-class>edu.etu.web.RemoveItemFromCart</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RemoveItemFromCart</servlet-name>
+        <url-pattern>/remove-item-from-cart</url-pattern>
+    </servlet-mapping>
+
     <servlet-mapping>
         <servlet-name>default</servlet-name>
         <url-pattern>/assets/*</url-pattern>

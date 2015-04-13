@@ -74,8 +74,8 @@ public class Servlet extends javax.servlet.http.HttpServlet {
                 "    <!-- Bootstrap core CSS -->\n" +
                 "    <link href=\"/assets/stylesheets/bootstrap.min.css\" rel=\"stylesheet\">\n" +
                 "    <link href=\"/assets/stylesheets/navbar.css\" rel=\"stylesheet\">\n" +
+                "    <link href=\"/assets/stylesheets/bootstrap-formhelpers.min.css\" rel=\"stylesheet\">\n" +
                 "    <link href=\"/assets/stylesheets/custom.css\" rel=\"stylesheet\">\n" +
-                "\n" +
                 "  <body>\n" +
                 "\n" +
                 "    <div class=\"container\">\n" +
@@ -105,6 +105,11 @@ public class Servlet extends javax.servlet.http.HttpServlet {
                 "                    </ul>\n" +
                 "                </li>" +
                 "            </ul>\n" +
+                "            <form class=\"navbar-form navbar-right\">\n" +
+                "                <button class=\"btn btn-default\">"+ internationalization.getString("signIn") + "</button>\n" +
+                "                <a class=\"btn btn-default\" href=\"/cart.jsp\">" + internationalization.getString("cart") +  "</a>\n" +
+                "                <button class=\"btn btn-default\">" + internationalization.getString("purchaseHistory") +  "</button>\n" +
+                "            </form>" +
                 "          </div><!--/.nav-collapse -->\n" +
                 "        </div><!--/.container-fluid -->\n" +
                 "      </nav>\n" +
@@ -116,7 +121,17 @@ public class Servlet extends javax.servlet.http.HttpServlet {
                 "                <img class=\"item img-responsive img-thumbnail\" src=\"/assets/images/items/" + item.id + ".jpg\" alt=\"\"/>\n" +
                 "            </div>\n" +
                 "            <br/>\n" +
-                "            <button type=\"button\" class=\"btn btn-block btn-primary\">" + internationalization.getString("buy") + "</button>\n" +
+                "            <form class=\"form-inline\" action=\"/add-item-to-cart\" method=\"POST\">\n" +
+                "                <div class=\"form-group\">\n" +
+                "                    <input type=\"hidden\" class=\"form-control\" name=\"id\" value=\""+ item.id +"\"/>\n" +
+                "                </div>\n" +
+                "                <div class=\"form-group col-xs-8\">\n" +
+                "                    <input type=\"text\" name=\"count\" class=\"form-control bfh-number\" data-min=\"1\" data-max=\"25\">\n" +
+                "                </div>\n" +
+                "                <div class=\"form-group col-xs-4\">\n" +
+                "                    <input type=\"submit\" class=\"form-control btn btn-primary\" value=\"" + internationalization.getString("buy") + "\" />\n" +
+                "                </div>\n" +
+                "            </form>" +
                 "        </div>\n" +
                 "        <div class=\"col-xs-12 col-md-9\">\n" +
                             "<div id=\"description\" role=\"tabpanel\">\n" +
@@ -160,42 +175,8 @@ public class Servlet extends javax.servlet.http.HttpServlet {
                 "    <!-- Placed at the end of the document so the pages load faster -->\n" +
                 "    <script src=\"/assets/javascripts/jquery.min.js\"></script>\n" +
                 "    <script src=\"/assets/javascripts/bootstrap.js\"></script>\n" +
+                    "<script src=\"/assets/javascripts/bootstrap-formhelpers.js\"></script>" +
                 "    <script src=\"/assets/javascripts/custom.js\"></script>\n" +
-                "<script>\n" +
-                        "    function setLocale(locale) {\n" +
-                        "        setCookie(\"locale\", locale, {expires: 3600});\n" +
-                        "        document.location.reload(true);\n" +
-                        "    }\n" +
-                        "\n" +
-                        "    function setCookie(name, value, options) {\n" +
-                        "        options = options || {};\n" +
-                        "\n" +
-                        "        var expires = options.expires;\n" +
-                        "\n" +
-                        "        if (typeof expires == \"number\" && expires) {\n" +
-                        "            var d = new Date();\n" +
-                        "            d.setTime(d.getTime() + expires*1000);\n" +
-                        "            expires = options.expires = d;\n" +
-                        "        }\n" +
-                        "        if (expires && expires.toUTCString) {\n" +
-                        "            options.expires = expires.toUTCString();\n" +
-                        "        }\n" +
-                        "\n" +
-                        "        value = encodeURIComponent(value);\n" +
-                        "\n" +
-                        "        var updatedCookie = name + \"=\" + value;\n" +
-                        "\n" +
-                        "        for(var propName in options) {\n" +
-                        "            updatedCookie += \"; \" + propName;\n" +
-                        "            var propValue = options[propName];\n" +
-                        "            if (propValue !== true) {\n" +
-                        "                updatedCookie += \"=\" + propValue;\n" +
-                        "            }\n" +
-                        "        }\n" +
-                        "\n" +
-                        "        document.cookie = updatedCookie;\n" +
-                        "    }\n" +
-                        "</script>" +
                 "   " +
                 " " +
                 "\n" +

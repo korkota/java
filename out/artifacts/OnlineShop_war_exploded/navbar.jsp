@@ -1,38 +1,23 @@
-<%@ page import="java.util.Locale" %>
-<%@ page import="java.util.ResourceBundle" %>
-<%@ page import="edu.etu.web.UTF8Control" %>
 <!-- Static navbar -->
-<%
 
-    String localeName = request.getParameter("locale");
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-    if (localeName == null) {
-        for (Cookie cookie : request.getCookies()) {
-            if (cookie.getName().equals("locale")) {
-                localeName = cookie.getValue();
-                break;
-            }
-        }
-    } else {
-        Cookie cookie = new Cookie("locale", localeName);
-        cookie.setMaxAge(60*60);
-        response.addCookie(cookie);
-    }
+<c:if test="${empty cookie.locale.value}">
+    <fmt:setLocale value="ru_RU" />
+</c:if>
+<c:if test="${cookie.locale.value eq 'ru_RU'}">
+    <fmt:setLocale value="ru_RU" />
+</c:if>
+<c:if test="${cookie.locale.value eq 'ge_GE'}">
+    <fmt:setLocale value="ge_GE" />
+</c:if>
+<c:if test="${cookie.locale.value eq 'en_US'}">
+    <fmt:setLocale value="en_US" />
+</c:if>
 
-    Locale locale;
+<fmt:setBundle basename="internationalization" scope="session"/>
 
-    if (localeName != null && localeName.equals("en_US")) {
-        locale = new Locale("en", "US");
-    } else if (localeName != null && localeName.equals("ge_GE")) {
-        locale = new Locale("ge", "GE");
-    } else {
-        locale = new Locale("ru", "RU");
-    }
-
-    ResourceBundle internationalization = ResourceBundle.getBundle("internationalization", locale, new UTF8Control());
-
-    request.setAttribute("internationalization", internationalization);
-%>
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -51,59 +36,24 @@
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown active">
                     <a href="#" class="dropdown-toggle"
-                       data-toggle="dropdown"><%=internationalization.getString("language")%> <b class="caret"></b></a>
+                       data-toggle="dropdown"><fmt:message key="language"/> <b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li><a onclick="setLocale('en_US');"><%=internationalization.getString("english")%>
+                        <li><a onclick="setLocale('en_US');"><fmt:message key="english"/>
                         </a></li>
-                        <li><a onclick="setLocale('ru_RU');"><%=internationalization.getString("russian")%>
+                        <li><a onclick="setLocale('ru_RU');"><fmt:message key="russian"/>
                         </a></li>
-                        <li><a onclick="setLocale('ge_GE');"><%=internationalization.getString("german")%>
+                        <li><a onclick="setLocale('ge_GE');"><fmt:message key="german"/>
                         </a></li>
                     </ul>
                 </li>
             </ul>
             <form class="navbar-form navbar-right">
-                <button class="btn btn-default"><%=internationalization.getString("signIn")%></button>
-                <button class="btn btn-default"><%=internationalization.getString("cart")%></button>
-                <button class="btn btn-default"><%=internationalization.getString("purchaseHistory")%></button>
+                <button class="btn btn-default"><fmt:message key="signIn"/></button>
+                <a class="btn btn-default" href="/cart.jsp"><fmt:message key="cart"/></a>
+                <button class="btn btn-default"><fmt:message key="purchaseHistory"/></button>
             </form>
         </div>
         <!--/.nav-collapse -->
     </div>
     <!--/.container-fluid -->
 </nav>
-<script>
-    function setLocale(locale) {
-        setCookie("locale", locale, {expires: 3600});
-        document.location.reload(true);
-    }
-
-    function setCookie(name, value, options) {
-        options = options || {};
-
-        var expires = options.expires;
-
-        if (typeof expires == "number" && expires) {
-            var d = new Date();
-            d.setTime(d.getTime() + expires*1000);
-            expires = options.expires = d;
-        }
-        if (expires && expires.toUTCString) {
-            options.expires = expires.toUTCString();
-        }
-
-        value = encodeURIComponent(value);
-
-        var updatedCookie = name + "=" + value;
-
-        for(var propName in options) {
-            updatedCookie += "; " + propName;
-            var propValue = options[propName];
-            if (propValue !== true) {
-                updatedCookie += "=" + propValue;
-            }
-        }
-
-        document.cookie = updatedCookie;
-    }
-</script>
