@@ -23,10 +23,14 @@ public class Servlet extends javax.servlet.http.HttpServlet {
         String localeName = request.getParameter("locale");
 
         if (localeName == null) {
-            for (Cookie cookie : request.getCookies()) {
-                if (cookie.getName().equals("locale")) {
-                    localeName = cookie.getValue();
-                    break;
+            Cookie[] cookies = request.getCookies();
+
+            if (cookies != null) {
+                for (Cookie cookie : cookies) {
+                    if (cookie.getName().equals("locale")) {
+                        localeName = cookie.getValue();
+                        break;
+                    }
                 }
             }
         } else {

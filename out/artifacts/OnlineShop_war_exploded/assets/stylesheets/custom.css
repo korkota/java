@@ -5,3 +5,9 @@
 .tab-pane {
     padding-top: 10px;
 }
+
+.form-signin {
+    width: 600px;
+    padding: 15px;
+    margin: 0 auto;
+}

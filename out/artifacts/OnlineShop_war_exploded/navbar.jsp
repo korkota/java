@@ -32,6 +32,14 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
+                <li>
+                    <a>
+                        <c:if test="${not empty pageContext.request.userPrincipal}">
+                            <strong><fmt:message key="username"/>:</strong> <c:out value="${pageContext.request.userPrincipal.name}" />
+                        </c:if>
+                    </a>
+                </li>
+
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown active">
@@ -48,9 +56,14 @@
                 </li>
             </ul>
             <form class="navbar-form navbar-right">
-                <button class="btn btn-default"><fmt:message key="signIn"/></button>
-                <a class="btn btn-default" href="/cart.jsp"><fmt:message key="cart"/></a>
-                <button class="btn btn-default"><fmt:message key="purchaseHistory"/></button>
+                <c:if test="${empty pageContext.request.userPrincipal}">
+                    <a href="/login.jsp" class="btn btn-default"><fmt:message key="signIn"/></a>
+                </c:if>
+                <c:if test="${not empty pageContext.request.userPrincipal}">
+                    <a class="btn btn-default" href="/cart.jsp"><fmt:message key="cart"/></a>
+                    <button class="btn btn-default"><fmt:message key="purchaseHistory"/></button>
+                    <a href="/logout.jsp" class="btn btn-default"><fmt:message key="signOut"/></a>
+                </c:if>
             </form>
         </div>
         <!--/.nav-collapse -->
