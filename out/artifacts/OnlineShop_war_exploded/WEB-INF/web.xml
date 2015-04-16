@@ -4,13 +4,19 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
 
+
+    <context-param>
+        <param-name>defaultTab</param-name>
+        <param-value>briefDescription</param-value>
+    </context-param>
+
     <servlet>
         <servlet-name>Servlet</servlet-name>
         <servlet-class>edu.etu.web.Servlet</servlet-class>
-        <init-param>
-            <param-name>defaultTab</param-name>
-            <param-value>briefDescription</param-value>
-        </init-param>
+        <!--<init-param>-->
+            <!--<param-name>defaultTab</param-name>-->
+            <!--<param-value>briefDescription</param-value>-->
+        <!--</init-param>-->
     </servlet>
     <servlet-mapping>
         <servlet-name>Servlet</servlet-name>
@@ -44,6 +50,7 @@
         <web-resource-collection>
             <url-pattern>/cart.jsp</url-pattern>
             <url-pattern>/login.jsp</url-pattern>
+            <url-pattern>/personal-area.jsp</url-pattern>
         </web-resource-collection>
         <auth-constraint>
             <role-name>user</role-name>

@@ -62,6 +62,20 @@ public class Servlet extends javax.servlet.http.HttpServlet {
             }
         }
 
+        String name, panel;
+        if (request.getUserPrincipal() != null) {
+            name = "<a><strong>" + internationalization.getString("username") + ":</strong> " + request.getUserPrincipal().getName() + "</a>\n";
+            panel = "                <a class=\"btn btn-default\" href=\"/cart.jsp\">" + internationalization.getString("cart") +  "</a>\n" +
+                    "                <a class=\"btn btn-default\">" + internationalization.getString("purchaseHistory") + "</a>\n" +
+                    "                <a href=\"/personal-area.jsp\" class=\"btn btn-default\">" + internationalization.getString("personalArea") + "</a>\n" +
+                    "                <a href=\"/logout.jsp\" class=\"btn btn-default\">" + internationalization.getString("signOut") + "</a>\n";
+        } else {
+            name = "";
+            panel = "<a href=\"/login.jsp\" class=\"btn btn-default\">"+ internationalization.getString("signIn") + "</a>\n";
+        }
+
+
+
         StringBuilder sb = new StringBuilder();
         sb.append(
                 "<!DOCTYPE html>" +
@@ -98,6 +112,9 @@ public class Servlet extends javax.servlet.http.HttpServlet {
                 "          </div>\n" +
                 "          <div id=\"navbar\" class=\"navbar-collapse collapse\">\n" +
                 "            <ul class=\"nav navbar-nav\">\n" +
+                "               <li>\n" +
+                                        name +
+                "               </li>\n" +
                 "            </ul>\n" +
                 "            <ul class=\"nav navbar-nav navbar-right\">\n" +
                 "                <li class=\"dropdown active\">\n" +
@@ -110,9 +127,7 @@ public class Servlet extends javax.servlet.http.HttpServlet {
                 "                </li>" +
                 "            </ul>\n" +
                 "            <form class=\"navbar-form navbar-right\">\n" +
-                "                <button class=\"btn btn-default\">"+ internationalization.getString("signIn") + "</button>\n" +
-                "                <a class=\"btn btn-default\" href=\"/cart.jsp\">" + internationalization.getString("cart") +  "</a>\n" +
-                "                <button class=\"btn btn-default\">" + internationalization.getString("purchaseHistory") +  "</button>\n" +
+                                panel +
                 "            </form>" +
                 "          </div><!--/.nav-collapse -->\n" +
                 "        </div><!--/.container-fluid -->\n" +
@@ -173,7 +188,7 @@ public class Servlet extends javax.servlet.http.HttpServlet {
                 "    </div> <!-- /container -->\n" +
                 "\n" +
                 "\n" +
-                "    <script> var CONFIG = {defaultTab: '" + getInitParameter("defaultTab") + "'}; </script>" +
+                "    <script> var CONFIG = {defaultTab: '" + request.getSession().getServletContext().getInitParameter("defaultTab") + "'}; </script>" +
                 "    <!-- Bootstrap core JavaScript\n" +
                 "    ================================================== -->\n" +
                 "    <!-- Placed at the end of the document so the pages load faster -->\n" +
