@@ -1,0 +1,267 @@
+--
+-- PostgreSQL database dump
+--
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+--
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: history; Type: TABLE; Schema: public; Owner: test_user; Tablespace: 
+--
+
+CREATE TABLE history (
+    user_id text NOT NULL,
+    item_id integer NOT NULL,
+    market_id integer,
+    delivery_address text,
+    item_count integer NOT NULL,
+    date date NOT NULL,
+    id integer NOT NULL
+);
+
+
+ALTER TABLE public.history OWNER TO test_user;
+
+--
+-- Name: history_id_seq; Type: SEQUENCE; Schema: public; Owner: test_user
+--
+
+CREATE SEQUENCE history_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.history_id_seq OWNER TO test_user;
+
+--
+-- Name: history_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: test_user
+--
+
+ALTER SEQUENCE history_id_seq OWNED BY history.id;
+
+
+--
+-- Name: item; Type: TABLE; Schema: public; Owner: test_user; Tablespace: 
+--
+
+CREATE TABLE item (
+    id integer NOT NULL,
+    title text NOT NULL,
+    price double precision NOT NULL,
+    brief_description text NOT NULL,
+    full_description text NOT NULL
+);
+
+
+ALTER TABLE public.item OWNER TO test_user;
+
+--
+-- Name: item_id_seq; Type: SEQUENCE; Schema: public; Owner: test_user
+--
+
+CREATE SEQUENCE item_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.item_id_seq OWNER TO test_user;
+
+--
+-- Name: item_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: test_user
+--
+
+ALTER SEQUENCE item_id_seq OWNED BY item.id;
+
+
+--
+-- Name: market; Type: TABLE; Schema: public; Owner: test_user; Tablespace: 
+--
+
+CREATE TABLE market (
+    id integer NOT NULL,
+    name text NOT NULL,
+    address text NOT NULL
+);
+
+
+ALTER TABLE public.market OWNER TO test_user;
+
+--
+-- Name: market_market_id_seq; Type: SEQUENCE; Schema: public; Owner: test_user
+--
+
+CREATE SEQUENCE market_market_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.market_market_id_seq OWNER TO test_user;
+
+--
+-- Name: market_market_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: test_user
+--
+
+ALTER SEQUENCE market_market_id_seq OWNED BY market.id;
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: test_user
+--
+
+ALTER TABLE ONLY history ALTER COLUMN id SET DEFAULT nextval('history_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: test_user
+--
+
+ALTER TABLE ONLY item ALTER COLUMN id SET DEFAULT nextval('item_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: test_user
+--
+
+ALTER TABLE ONLY market ALTER COLUMN id SET DEFAULT nextval('market_market_id_seq'::regclass);
+
+
+--
+-- Data for Name: history; Type: TABLE DATA; Schema: public; Owner: test_user
+--
+
+COPY history (user_id, item_id, market_id, delivery_address, item_count, date, id) FROM stdin;
+test	0	1	sfdsfsasafd	0	2015-04-20	3
+test	0	2	sfdsfsasafd	0	2015-04-20	2
+myname	1	1	\N	1	2015-04-20	4
+myname	1	1	\N	1	2015-04-20	5
+\.
+
+
+--
+-- Name: history_id_seq; Type: SEQUENCE SET; Schema: public; Owner: test_user
+--
+
+SELECT pg_catalog.setval('history_id_seq', 5, true);
+
+
+--
+-- Data for Name: item; Type: TABLE DATA; Schema: public; Owner: test_user
+--
+
+COPY item (id, title, price, brief_description, full_description) FROM stdin;
+1	Экран для проектора	500	<b>Тип конструкции:</b> Экран с электроприводом <br/>	<b>Тип конструкции:</b> Экран с электроприводом <br/>
+\.
+
+
+--
+-- Name: item_id_seq; Type: SEQUENCE SET; Schema: public; Owner: test_user
+--
+
+SELECT pg_catalog.setval('item_id_seq', 1, false);
+
+
+--
+-- Data for Name: market; Type: TABLE DATA; Schema: public; Owner: test_user
+--
+
+COPY market (id, name, address) FROM stdin;
+1	Test 1	blabla
+2	Test 2	lalala
+3	Юлмарт	ул. Торжковская, дом 15
+\.
+
+
+--
+-- Name: market_market_id_seq; Type: SEQUENCE SET; Schema: public; Owner: test_user
+--
+
+SELECT pg_catalog.setval('market_market_id_seq', 3, true);
+
+
+--
+-- Name: history_pkey; Type: CONSTRAINT; Schema: public; Owner: test_user; Tablespace: 
+--
+
+ALTER TABLE ONLY history
+    ADD CONSTRAINT history_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: item_pkey; Type: CONSTRAINT; Schema: public; Owner: test_user; Tablespace: 
+--
+
+ALTER TABLE ONLY item
+    ADD CONSTRAINT item_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: market_pkey; Type: CONSTRAINT; Schema: public; Owner: test_user; Tablespace: 
+--
+
+ALTER TABLE ONLY market
+    ADD CONSTRAINT market_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: unique_id; Type: CONSTRAINT; Schema: public; Owner: test_user; Tablespace: 
+--
+
+ALTER TABLE ONLY history
+    ADD CONSTRAINT unique_id UNIQUE (id);
+
+
+--
+-- Name: unique_market_id; Type: CONSTRAINT; Schema: public; Owner: test_user; Tablespace: 
+--
+
+ALTER TABLE ONLY market
+    ADD CONSTRAINT unique_market_id UNIQUE (id);
+
+
+--
+-- Name: public; Type: ACL; Schema: -; Owner: postgres
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM postgres;
+GRANT ALL ON SCHEMA public TO postgres;
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+--
+-- PostgreSQL database dump complete
+--
+

@@ -2,67 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2e1c8676-7da3-4d95-80e3-533705b315ad" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/antlr-2.7.7.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/dom4j-1.6.1.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/hibernate-commons-annotations-4.0.5.Final.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/hibernate-core-4.3.9.Final.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/hibernate-entitymanager-4.3.9.Final.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/hibernate-jpa-2.1-api-1.0.0.Final.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/jandex-1.1.0.Final.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/javassist-3.18.1-GA.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/jboss-logging-3.1.3.GA.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/jboss-logging-annotations-1.2.0.Beta1.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/jboss-transaction-api_1.2_spec-1.0.0.Final.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/postgresql-9.3-1103-jdbc41.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/xml-apis-1.0.b2.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/edu/etu/web/DoOrder.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/edu/etu/web/HibernateUtil.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Hibernate_4_2_2_4_2_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/edu/etu/web/History.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/edu/etu/web/models/HistoryEntity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/edu/etu/web/models/ItemEntity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/edu/etu/web/models/MarketEntity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/edu/etu/web/Markets.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/hibernate.cfg.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/history.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/order.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/org_hibernate_hibernate_entitymanager_4_3_9_Final.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/org_hibernate_hibernate_entitymanager_4_3_9_Final1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/org_postgresql_postgresql_9_3_1103_jdbc41.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/org_postgresql_postgresql_9_3_1103_jdbc411.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/OnlineShop_war_exploded/WEB-INF/classes/edu/etu/web/AddItemToCart.class" afterPath="$PROJECT_DIR$/out/artifacts/OnlineShop_war_exploded/WEB-INF/classes/edu/etu/web/AddItemToCart.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/OnlineShop/edu/etu/web/AddItemToCart.class" afterPath="$PROJECT_DIR$/out/production/OnlineShop/edu/etu/web/AddItemToCart.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/OnlineShop_war_exploded/WEB-INF/classes/edu/etu/web/Cart.class" afterPath="$PROJECT_DIR$/out/artifacts/OnlineShop_war_exploded/WEB-INF/classes/edu/etu/web/Cart.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/OnlineShop/edu/etu/web/Cart.class" afterPath="$PROJECT_DIR$/out/production/OnlineShop/edu/etu/web/Cart.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/OnlineShop_war_exploded/WEB-INF/classes/edu/etu/web/Items.class" afterPath="$PROJECT_DIR$/out/artifacts/OnlineShop_war_exploded/WEB-INF/classes/edu/etu/web/Items.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/OnlineShop/edu/etu/web/Items.class" afterPath="$PROJECT_DIR$/out/production/OnlineShop/edu/etu/web/Items.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/OnlineShop_war_exploded/WEB-INF/classes/edu/etu/web/RemoveItemFromCart.class" afterPath="$PROJECT_DIR$/out/artifacts/OnlineShop_war_exploded/WEB-INF/classes/edu/etu/web/RemoveItemFromCart.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/OnlineShop/edu/etu/web/RemoveItemFromCart.class" afterPath="$PROJECT_DIR$/out/production/OnlineShop/edu/etu/web/RemoveItemFromCart.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/OnlineShop_war_exploded/WEB-INF/classes/edu/etu/web/Servlet.class" afterPath="$PROJECT_DIR$/out/artifacts/OnlineShop_war_exploded/WEB-INF/classes/edu/etu/web/Servlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/OnlineShop/edu/etu/web/Servlet.class" afterPath="$PROJECT_DIR$/out/production/OnlineShop/edu/etu/web/Servlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/edu/etu/web/AddItemToCart.java" afterPath="$PROJECT_DIR$/src/edu/etu/web/AddItemToCart.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/edu/etu/web/Cart.java" afterPath="$PROJECT_DIR$/src/edu/etu/web/Cart.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/edu/etu/web/Items.java" afterPath="$PROJECT_DIR$/src/edu/etu/web/Items.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OnlineShop.iml" afterPath="$PROJECT_DIR$/OnlineShop.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/edu/etu/web/RemoveItemFromCart.java" afterPath="$PROJECT_DIR$/src/edu/etu/web/RemoveItemFromCart.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/edu/etu/web/Servlet.java" afterPath="$PROJECT_DIR$/src/edu/etu/web/Servlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/OnlineShop_war_exploded/cart.jsp" afterPath="$PROJECT_DIR$/out/artifacts/OnlineShop_war_exploded/cart.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/cart.jsp" afterPath="$PROJECT_DIR$/web/cart.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/OnlineShop_war_exploded/index.jsp" afterPath="$PROJECT_DIR$/out/artifacts/OnlineShop_war_exploded/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/index.jsp" afterPath="$PROJECT_DIR$/web/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/OnlineShop_war_exploded/WEB-INF/classes/internationalization_en_US.properties" afterPath="$PROJECT_DIR$/out/artifacts/OnlineShop_war_exploded/WEB-INF/classes/internationalization_en_US.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/OnlineShop/internationalization_en_US.properties" afterPath="$PROJECT_DIR$/out/production/OnlineShop/internationalization_en_US.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/internationalization_en_US.properties" afterPath="$PROJECT_DIR$/src/internationalization_en_US.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/OnlineShop_war_exploded/WEB-INF/classes/internationalization_ge_GE.properties" afterPath="$PROJECT_DIR$/out/artifacts/OnlineShop_war_exploded/WEB-INF/classes/internationalization_ge_GE.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/OnlineShop/internationalization_ge_GE.properties" afterPath="$PROJECT_DIR$/out/production/OnlineShop/internationalization_ge_GE.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/internationalization_ge_GE.properties" afterPath="$PROJECT_DIR$/src/internationalization_ge_GE.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/OnlineShop_war_exploded/WEB-INF/classes/internationalization_ru_RU.properties" afterPath="$PROJECT_DIR$/out/artifacts/OnlineShop_war_exploded/WEB-INF/classes/internationalization_ru_RU.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/OnlineShop/internationalization_ru_RU.properties" afterPath="$PROJECT_DIR$/out/production/OnlineShop/internationalization_ru_RU.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/internationalization_ru_RU.properties" afterPath="$PROJECT_DIR$/src/internationalization_ru_RU.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/OnlineShop_war_exploded/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/out/artifacts/OnlineShop_war_exploded/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test_database" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="OnlineShop.iws" />
@@ -215,10 +155,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="History.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="History.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/edu/etu/web/History.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="99" max-vertical-offset="738">
+            <state vertical-scroll-proportion="0.46478873" vertical-offset="99" max-vertical-offset="738">
               <caret line="22" column="21" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -227,10 +167,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HistoryEntity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="HistoryEntity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/edu/etu/web/models/HistoryEntity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.32394367" vertical-offset="1143" max-vertical-offset="1782">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1143" max-vertical-offset="1782">
               <caret line="104" column="38" selection-start-line="104" selection-start-column="38" selection-end-line="104" selection-end-column="38" />
               <folding />
             </state>
@@ -260,7 +200,7 @@
       <file leaf-file-name="DoOrder.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/edu/etu/web/DoOrder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="362" max-vertical-offset="882">
+            <state vertical-scroll-proportion="0.0" vertical-offset="256" max-vertical-offset="882">
               <caret line="42" column="41" selection-start-line="42" selection-start-column="41" selection-end-line="42" selection-end-column="41" />
               <folding />
             </state>
@@ -934,7 +874,7 @@
       <workItem from="1428956757681" duration="8120000" />
       <workItem from="1429206033935" duration="6005000" />
       <workItem from="1429522437581" duration="7111000" />
-      <workItem from="1429531697741" duration="21470000" />
+      <workItem from="1429531697741" duration="22326000" />
     </task>
     <task id="LOCAL-00001" summary="lab 4">
       <created>1429210813148</created>
@@ -942,11 +882,17 @@
       <option name="project" value="LOCAL" />
       <updated>1429210813148</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="part of &#10;part of lab 5">
+      <created>1429555570639</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1429555570639</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="97905000" />
+    <option name="totallyTimeSpent" value="98761000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1054,7 +1000,8 @@
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
     <MESSAGE value="lab 4" />
-    <option name="LAST_COMMIT_MESSAGE" value="lab 4" />
+    <MESSAGE value="part of &#10;part of lab 5" />
+    <option name="LAST_COMMIT_MESSAGE" value="part of &#10;part of lab 5" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1450,37 +1397,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/edu/etu/web/DoOrder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="362" max-vertical-offset="882">
-          <caret line="42" column="41" selection-start-line="42" selection-start-column="41" selection-end-line="42" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/history.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.0" vertical-offset="270" max-vertical-offset="882">
           <caret line="21" column="23" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.0740743" vertical-offset="817" max-vertical-offset="1710">
-          <caret line="56" column="54" selection-start-line="56" selection-start-column="54" selection-end-line="56" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/edu/etu/web/History.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="99" max-vertical-offset="738">
-          <caret line="22" column="21" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1507,9 +1428,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/edu/etu/web/models/HistoryEntity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32394367" vertical-offset="1143" max-vertical-offset="1782">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1143" max-vertical-offset="1782">
           <caret line="104" column="38" selection-start-line="104" selection-start-column="38" selection-end-line="104" selection-end-column="38" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.0740743" vertical-offset="817" max-vertical-offset="1710">
+          <caret line="56" column="54" selection-start-line="56" selection-start-column="54" selection-end-line="56" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/etu/web/DoOrder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="362" max-vertical-offset="882">
+          <caret line="42" column="41" selection-start-line="42" selection-start-column="41" selection-end-line="42" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/etu/web/History.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.46478873" vertical-offset="99" max-vertical-offset="738">
+          <caret line="22" column="21" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
