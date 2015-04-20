@@ -1,5 +1,7 @@
 package edu.etu.web;
 
+import edu.etu.web.models.ItemEntity;
+
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -31,8 +33,9 @@ public class AddItemToCart extends HttpServlet {
         }
 
         if (id != null) {
-            for(Item item: items.getItems())
-                if (item.id.equals(id)) {
+
+            for(ItemEntity item: items.getItems())
+                if (item.getId().toString().equals(id)) {
                     cart.addItem(item, count);
                 }
         }

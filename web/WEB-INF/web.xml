@@ -27,6 +27,11 @@
         <servlet-name>AddItemToCart</servlet-name>
         <servlet-class>edu.etu.web.AddItemToCart</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DoOrder</servlet-name>
+        <servlet-class>edu.etu.web.DoOrder</servlet-class>
+    </servlet>
+
     <servlet-mapping>
         <servlet-name>AddItemToCart</servlet-name>
         <url-pattern>/add-item-to-cart</url-pattern>
@@ -40,6 +45,10 @@
         <servlet-name>RemoveItemFromCart</servlet-name>
         <url-pattern>/remove-item-from-cart</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DoOrder</servlet-name>
+        <url-pattern>/do-order</url-pattern>
+    </servlet-mapping>
 
     <servlet-mapping>
         <servlet-name>default</servlet-name>
@@ -49,6 +58,7 @@
     <security-constraint>
         <web-resource-collection>
             <url-pattern>/cart.jsp</url-pattern>
+            <url-pattern>/order.jsp</url-pattern>
             <url-pattern>/login.jsp</url-pattern>
             <url-pattern>/personal-area.jsp</url-pattern>
         </web-resource-collection>

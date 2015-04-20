@@ -1,5 +1,7 @@
 package edu.etu.web;
 
+import edu.etu.web.models.ItemEntity;
+
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -25,8 +27,8 @@ public class RemoveItemFromCart extends HttpServlet {
 
 
         if (id != null) {
-            for(Item item: items.getItems())
-                if (item.id.equals(id)) cart.getCart().remove(item);
+            for(ItemEntity item: items.getItems())
+                if (item.getId().toString().equals(id)) cart.getCart().remove(item);
         }
         response.sendRedirect("/cart.jsp");
 //        response.sendRedirect(request.getHeader("Referer"));

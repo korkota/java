@@ -1,4 +1,5 @@
 <%@ page import="edu.etu.web.Item" %>
+<%@ page import="edu.etu.web.models.ItemEntity" %>
 <%--
   Created by IntelliJ IDEA.
   User: korkota
@@ -50,14 +51,14 @@
                     <label for="filter" class="text-right"><fmt:message key="show"/>:</label>
                     <select id="filter" class="form-control" onchange="itemsChanged();">
                         <option value="0"><fmt:message key="all"/></option>
-                        <% for (Item item : items.getItems()) {
+                        <% for (ItemEntity item : items.getItems()) {
                             String selected = "";
-                            if (id != null && id.equals(item.id)) {
+                            if (id != null && id.equals(item.getId().toString())) {
                                 selected = "selected";
                             }
                         %>
-                            <option value="<%=item.id%>" <%=selected%>>
-                                <%=item.title%>
+                            <option value="<%=item.getId().toString()%>" <%=selected%>>
+                                <%=item.getTitle()%>
                             </option>
                         <% } %>
                     </select>
@@ -65,8 +66,8 @@
             </form>
         </div>
     </div>
-    <% for (Item item : items.getItems()) {
-        if (id != null && !id.equals("0") && !id.equals(item.id)) {
+    <% for (ItemEntity item : items.getItems()) {
+        if (id != null && !id.equals("0") && !id.equals(item.getId().toString())) {
             continue;
         }
         request.setAttribute("item", item);

@@ -1,8 +1,11 @@
 package edu.etu.web;
 
+import edu.etu.web.models.ItemEntity;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Locale;
+import java.util.Objects;
 import java.util.ResourceBundle;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -55,10 +58,10 @@ public class Servlet extends javax.servlet.http.HttpServlet {
         Items items = (Items)context.getAttribute("items");
 
         String id = request.getParameter("id");
-        Item item = null;
-        for (Item itemCandidate : items.getItems()) {
-            if (itemCandidate.id.equals(id)) {
-                item = itemCandidate;
+        ItemEntity item = null;
+        for (Object itemCandidate : items.getItems()) {
+            if (((ItemEntity) itemCandidate).getId().toString().equals(id)) {
+                item = (ItemEntity) itemCandidate;
             }
         }
 
@@ -133,16 +136,16 @@ public class Servlet extends javax.servlet.http.HttpServlet {
                 "        </div><!--/.container-fluid -->\n" +
                 "      </nav>\n" +
                 "\n" +
-                "    <h4>" + item.title + " <small>" + item.price + "$</small></h4>" +
+                "    <h4>" + item.getTitle() + " <small>" + item.getPrice() + "$</small></h4>" +
                 "    <div class=\"row\">\n" +
                 "        <div class=\"col-xs-12 col-md-3\">\n" +
                 "            <div class=\"text-center\">\n" +
-                "                <img class=\"item img-responsive img-thumbnail\" src=\"/assets/images/items/" + item.id + ".jpg\" alt=\"\"/>\n" +
+                "                <img class=\"item img-responsive img-thumbnail\" src=\"/assets/images/items/" + item.getId().toString() + ".jpg\" alt=\"\"/>\n" +
                 "            </div>\n" +
                 "            <br/>\n" +
                 "            <form class=\"form-inline\" action=\"/add-item-to-cart\" method=\"POST\">\n" +
                 "                <div class=\"form-group\">\n" +
-                "                    <input type=\"hidden\" class=\"form-control\" name=\"id\" value=\""+ item.id +"\"/>\n" +
+                "                    <input type=\"hidden\" class=\"form-control\" name=\"id\" value=\""+ item.getId().toString() +"\"/>\n" +
                 "                </div>\n" +
                 "                <div class=\"form-group col-xs-8\">\n" +
                 "                    <input type=\"text\" name=\"count\" class=\"form-control bfh-number\" data-min=\"1\" data-max=\"25\">\n" +
@@ -165,10 +168,10 @@ public class Servlet extends javax.servlet.http.HttpServlet {
                             "  <!-- Tab panes -->\n" +
                             "  <div class=\"tab-content\">\n" +
                             "    <div role=\"tabpanel\" class=\"tab-pane\" id=\"briefDescription\">"
-                                    + item.briefDescription +
+                                    + item.getBriefDescription() +
                                 "</div>\n" +
                             "    <div role=\"tabpanel\" class=\"tab-pane\" id=\"fullDescription\">"
-                                    + item.fullDescription +
+                                    + item.getFullDescription() +
                                 "</div>\n" +
                             "    <div role=\"tabpanel\" class=\"tab-pane\" id=\"reviews\">" +
                                     "<p class=\"well\">Отзыв от пользователя <b>User1</b>: </br>" +

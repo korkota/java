@@ -1,5 +1,7 @@
 package edu.etu.web;
 
+import edu.etu.web.models.ItemEntity;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -7,13 +9,13 @@ import java.util.Map;
  * Created by Алексей on 01.04.2015.
  */
 public class Cart {
-    private HashMap<Item, Integer> cart = new HashMap<Item, Integer>();
+    private HashMap<ItemEntity, Integer> cart = new HashMap<ItemEntity, Integer>();
 
-    public HashMap<Item, Integer> getCart () {
+    public HashMap<ItemEntity, Integer> getCart () {
         return cart;
     }
 
-    public void addItem(Item item, Integer count) {
+    public void addItem(ItemEntity item, Integer count) {
         Integer value = cart.get(item);
 
         if (value != null) {
@@ -24,14 +26,14 @@ public class Cart {
     }
 
     public void reset() {
-        cart = new HashMap<Item, Integer>();
+        cart = new HashMap<ItemEntity, Integer>();
     }
 
     public double getTotalSum() {
         double total = 0.0;
 
-        for (Map.Entry<Item, Integer> entry : cart.entrySet()) {
-            total += entry.getKey().price * entry.getValue();
+        for (Map.Entry<ItemEntity, Integer> entry : cart.entrySet()) {
+            total += entry.getKey().getPrice() * entry.getValue();
         }
 
         return total;

@@ -1,4 +1,4 @@
-<%@ page import="edu.etu.web.Item" %>
+<%@ page import="edu.etu.web.models.ItemEntity" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
