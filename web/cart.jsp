@@ -61,10 +61,13 @@
                     <fmt:message key="emptyCart" />
                 </c:when>
                 <c:otherwise>
-                    <div class="col-sm-4">
+                    <div class="col-xs-4">
                         <h4 class="text-center">
                             <fmt:message key="total" />: ${cart.getTotalSum()}$
                         </h4>
+                    </div>
+                    <div class="col-xs-4 pull-right">
+                        <a class="btn btn-success btn-block" href="/order.jsp"><fmt:message key="order"/></a>
                     </div>
                 </c:otherwise>
             </c:choose>

@@ -11,3 +11,8 @@
     padding: 15px;
     margin: 0 auto;
 }
+
+.map {
+    width: 100%;
+    height: 400px;
+}

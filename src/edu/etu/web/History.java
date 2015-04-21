@@ -20,7 +20,7 @@ public class History {
         try {
             session = HibernateUtil.getSession();
             tx = session.beginTransaction();
-            list =  session.createSQLQuery("select item.title as item_title, item_count, delivery_address, market.name as market_name, date from history inner join item on history.item_id = item.id inner join market on history.market_id = market.id").setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP).list();
+            list =  session.createSQLQuery("select item.title as item_title, item_count, delivery_address, market.address as market_address, date from history left join item on history.item_id = item.id left join market on history.market_id = market.id").setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP).list();
             tx.commit();
         } catch (HibernateException e) {
             if (tx != null) tx.rollback();

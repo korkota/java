@@ -61,7 +61,10 @@
                 </c:if>
                 <c:if test="${not empty pageContext.request.userPrincipal}">
                     <a class="btn btn-default" href="/cart.jsp"><fmt:message key="cart"/></a>
-                    <a class="btn btn-default"><fmt:message key="purchaseHistory"/></a>
+                    <c:if test="${not empty cart.cart}">
+                        <a class="btn btn-default" href="/order.jsp"><fmt:message key="checkout"/></a>
+                    </c:if>
+                    <a class="btn btn-default" href="/history.jsp"><fmt:message key="purchaseHistory"/></a>
                     <a class="btn btn-default" href="/personal-area.jsp"><fmt:message key="personalArea"/></a>
                     <a href="/logout.jsp" class="btn btn-default"><fmt:message key="signOut"/></a>
                 </c:if>

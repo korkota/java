@@ -69,7 +69,8 @@ public class Servlet extends javax.servlet.http.HttpServlet {
         if (request.getUserPrincipal() != null) {
             name = "<a><strong>" + internationalization.getString("username") + ":</strong> " + request.getUserPrincipal().getName() + "</a>\n";
             panel = "                <a class=\"btn btn-default\" href=\"/cart.jsp\">" + internationalization.getString("cart") +  "</a>\n" +
-                    "                <a class=\"btn btn-default\">" + internationalization.getString("purchaseHistory") + "</a>\n" +
+                    "                <a class=\"btn btn-default\" href=\"/history.jsp\">" + internationalization.getString("purchaseHistory") + "</a>\n" +
+                    "                <a class=\"btn btn-default\" href=\"/order.jsp\">" + internationalization.getString("checkout") + "</a>\n" +
                     "                <a href=\"/personal-area.jsp\" class=\"btn btn-default\">" + internationalization.getString("personalArea") + "</a>\n" +
                     "                <a href=\"/logout.jsp\" class=\"btn btn-default\">" + internationalization.getString("signOut") + "</a>\n";
         } else {

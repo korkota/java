@@ -38,4 +38,8 @@ public class Cart {
 
         return total;
     }
+
+    public boolean isEmpty() {
+        return cart == null || cart.isEmpty();
+    }
 }

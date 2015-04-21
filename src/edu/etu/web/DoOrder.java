@@ -23,6 +23,7 @@ import java.util.Map;
 @WebServlet(name = "DoOrder")
 public class DoOrder extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
         HttpSession session = request.getSession(true);
         Cart cart = (Cart)session.getAttribute("cart");
 
@@ -53,6 +54,6 @@ public class DoOrder extends HttpServlet {
             }
         }
 
-        response.sendRedirect("/index.jsp");
+        response.sendRedirect("/history.jsp");
     }
 }

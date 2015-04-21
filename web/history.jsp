@@ -24,9 +24,28 @@
 
     <div class="col-xs-12">
         <div class="row">
-            <c:forEach items="${history.history}" var="history">
-                ${history.item_title}
-            </c:forEach>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th><fmt:message key="item"/></th>
+                    <th><fmt:message key="amount"/></th>
+                    <th><fmt:message key="deliveryAddress"/></th>
+                    <th><fmt:message key="date"/></th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach items="${history.history}" var="history">
+                    <tr>
+                        <th scope="row">${history.item_title}</th>
+                        <td>${history.item_count}</td>
+                        <td>${empty history.delivery_address ? history.market_address : history.delivery_address}</td>
+                        <td>${history.date}</td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
+            <hr>
+            <span class="pull-right"><fmt:message key="theTotalNumberOfOrders"/>: <strong>${history.history.size()}</strong></span>
         </div>
     </div>
 </div>

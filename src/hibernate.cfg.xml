@@ -8,6 +8,8 @@
       <property name="connection.driver_class">org.postgresql.Driver</property>
       <property name="connection.username">postgres</property>
       <property name="connection.password">07081993</property>
+
+
       <mapping class="edu.etu.web.models.HistoryEntity"/>
       <mapping class="edu.etu.web.models.MarketEntity"/>
       <mapping class="edu.etu.web.models.ItemEntity"/>

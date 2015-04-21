@@ -11,6 +11,8 @@ public class MarketEntity {
     private Integer id;
     private String name;
     private String address;
+    private Double lat;
+    private Double lng;
 
     @Id
     @Column(name = "id")
@@ -42,6 +44,26 @@ public class MarketEntity {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    @Basic
+    @Column(name = "lat")
+    public double getLat() {
+        return lat;
+    }
+
+    public void setLat(double lat) {
+        this.lat = lat;
+    }
+
+    @Basic
+    @Column(name = "lng")
+    public double getLng() {
+        return lng;
+    }
+
+    public void setLng(double lng) {
+        this.lng = lng;
     }
 
     @Override
