@@ -36,10 +36,13 @@
             cookie.setMaxAge(20); //1 hour
             response.addCookie(cookie);
         } else {
-            for (Cookie cookie : request.getCookies()) {
-                if (cookie.getName().equals("filter.id")) {
-                    id = cookie.getValue();
-                    break;
+            Cookie[] cookies = request.getCookies();
+            if (cookies != null) {
+                for (Cookie cookie : cookies) {
+                    if (cookie.getName().equals("filter.id")) {
+                        id = cookie.getValue();
+                        break;
+                    }
                 }
             }
         }

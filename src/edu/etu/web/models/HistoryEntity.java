@@ -95,9 +95,9 @@ public class HistoryEntity {
         if (o == null || getClass() != o.getClass()) return false;
 
         HistoryEntity that = (HistoryEntity) o;
+        if (itemCount != that.itemCount) return false;
 
         if (id != that.id) return false;
-        if (itemCount != that.itemCount) return false;
         if (itemId != that.itemId) return false;
         if (date != null ? !date.equals(that.date) : that.date != null) return false;
         if (deliveryAddress != null ? !deliveryAddress.equals(that.deliveryAddress) : that.deliveryAddress != null)

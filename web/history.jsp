@@ -25,7 +25,7 @@
     <div class="col-xs-12">
         <div class="row">
             <c:forEach items="${history.history}" var="history">
-                ${history.id}
+                ${history.item_title}
             </c:forEach>
         </div>
     </div>
