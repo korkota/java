@@ -1,4 +1,3 @@
-<%@ page import="edu.etu.web.Item" %>
 <%@ page import="edu.etu.web.models.ItemEntity" %>
 <%--
   Created by IntelliJ IDEA.

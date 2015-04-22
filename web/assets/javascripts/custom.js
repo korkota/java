@@ -41,6 +41,12 @@ function setCookie(name, value, options) {
     document.cookie = updatedCookie;
 }
 
+function getCookie(name) {
+    var value = "; " + document.cookie;
+    var parts = value.split("; " + name + "=");
+    if (parts.length == 2) return parts.pop().split(";").shift();
+}
+
 jQuery(document).ready(function($) {
     if (typeof CONFIG !== 'undefined') {
         $('#description a[href="#' + CONFIG.defaultTab + '"]').tab('show');

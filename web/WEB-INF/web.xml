@@ -31,6 +31,10 @@
         <servlet-name>DoOrder</servlet-name>
         <servlet-class>edu.etu.web.DoOrder</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DoReview</servlet-name>
+        <servlet-class>edu.etu.web.DoReview</servlet-class>
+    </servlet>
 
     <servlet-mapping>
         <servlet-name>AddItemToCart</servlet-name>
@@ -49,6 +53,10 @@
         <servlet-name>DoOrder</servlet-name>
         <url-pattern>/do-order</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DoReview</servlet-name>
+        <url-pattern>/do-review</url-pattern>
+    </servlet-mapping>
 
     <servlet-mapping>
         <servlet-name>default</servlet-name>
@@ -61,6 +69,10 @@
             <url-pattern>/order.jsp</url-pattern>
             <url-pattern>/login.jsp</url-pattern>
             <url-pattern>/personal-area.jsp</url-pattern>
+            <url-pattern>/add-item-to-cart</url-pattern>
+            <url-pattern>/remove-item-from-cart</url-pattern>
+            <url-pattern>/do-order</url-pattern>
+            <url-pattern>/do-review</url-pattern>
         </web-resource-collection>
         <auth-constraint>
             <role-name>user</role-name>
@@ -78,4 +90,29 @@
         </form-login-config>
     </login-config>
 
+    <filter>
+        <display-name>LogPage</display-name>
+        <filter-name>LogPage</filter-name>
+        <filter-class>edu.etu.web.LogPage</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>LogPage</filter-name>
+        <url-pattern>*.jsp</url-pattern>
+        <url-pattern>/items</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <display-name>LogAction</display-name>
+        <filter-name>LogAction</filter-name>
+        <filter-class>edu.etu.web.LogAction</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>LogAction</filter-name>
+        <url-pattern>/add-item-to-cart</url-pattern>
+        <url-pattern>/remove-item-from-cart</url-pattern>
+        <url-pattern>/do-order</url-pattern>
+        <url-pattern>/do-review</url-pattern>
+    </filter-mapping>
 </web-app>

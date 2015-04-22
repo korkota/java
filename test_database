@@ -140,6 +140,41 @@ ALTER SEQUENCE market_market_id_seq OWNED BY market.id;
 
 
 --
+-- Name: review; Type: TABLE; Schema: public; Owner: test_user; Tablespace: 
+--
+
+CREATE TABLE review (
+    user_id text NOT NULL,
+    message text NOT NULL,
+    date date NOT NULL,
+    id integer NOT NULL
+);
+
+
+ALTER TABLE public.review OWNER TO test_user;
+
+--
+-- Name: review_id_seq; Type: SEQUENCE; Schema: public; Owner: test_user
+--
+
+CREATE SEQUENCE review_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.review_id_seq OWNER TO test_user;
+
+--
+-- Name: review_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: test_user
+--
+
+ALTER SEQUENCE review_id_seq OWNED BY review.id;
+
+
+--
 -- Name: id; Type: DEFAULT; Schema: public; Owner: test_user
 --
 
@@ -161,10 +196,18 @@ ALTER TABLE ONLY market ALTER COLUMN id SET DEFAULT nextval('market_market_id_se
 
 
 --
+-- Name: id; Type: DEFAULT; Schema: public; Owner: test_user
+--
+
+ALTER TABLE ONLY review ALTER COLUMN id SET DEFAULT nextval('review_id_seq'::regclass);
+
+
+--
 -- Data for Name: history; Type: TABLE DATA; Schema: public; Owner: test_user
 --
 
 COPY history (user_id, item_id, market_id, delivery_address, item_count, date, id) FROM stdin;
+myname	1	3	\N	3	2015-04-22	28
 \.
 
 
@@ -172,7 +215,7 @@ COPY history (user_id, item_id, market_id, delivery_address, item_count, date, i
 -- Name: history_id_seq; Type: SEQUENCE SET; Schema: public; Owner: test_user
 --
 
-SELECT pg_catalog.setval('history_id_seq', 21, true);
+SELECT pg_catalog.setval('history_id_seq', 28, true);
 
 
 --
@@ -213,6 +256,23 @@ SELECT pg_catalog.setval('market_market_id_seq', 3, true);
 
 
 --
+-- Data for Name: review; Type: TABLE DATA; Schema: public; Owner: test_user
+--
+
+COPY review (user_id, message, date, id) FROM stdin;
+myname	Отличный магазин!	2015-04-22	11
+myname	Товар доставили с большой задержкой.	2015-04-22	12
+\.
+
+
+--
+-- Name: review_id_seq; Type: SEQUENCE SET; Schema: public; Owner: test_user
+--
+
+SELECT pg_catalog.setval('review_id_seq', 13, true);
+
+
+--
 -- Name: history_pkey; Type: CONSTRAINT; Schema: public; Owner: test_user; Tablespace: 
 --
 
@@ -234,6 +294,14 @@ ALTER TABLE ONLY item
 
 ALTER TABLE ONLY market
     ADD CONSTRAINT market_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: review_pkey; Type: CONSTRAINT; Schema: public; Owner: test_user; Tablespace: 
+--
+
+ALTER TABLE ONLY review
+    ADD CONSTRAINT review_pkey PRIMARY KEY (id);
 
 
 --
