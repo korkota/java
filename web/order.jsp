@@ -81,7 +81,7 @@
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="/assets/javascripts/jquery.min.js"></script>
 <script src="/assets/javascripts/bootstrap.js"></script>
-<script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+<script src="https://maps.google.com/maps/api/js?sensor=true"></script>
 <script src="/assets/javascripts/gmaps.js"></script>
 <script>
     $(function () {
